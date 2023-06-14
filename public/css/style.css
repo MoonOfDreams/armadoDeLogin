@@ -1,0 +1,50 @@
+
+header div.btn{
+  display: flex;
+  gap: 25px;
+  padding: 5px;
+  justify-content: center;
+}
+header a{
+  text-decoration: none;
+  color: black;
+}
+main{
+  display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: column;
+}
+main div.recordame{
+  display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    flex-direction: row-reverse;
+}
+main h1{
+  text-align: center;
+}
+main form {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: space-between;
+align-items: center;
+  gap: 10px;
+}
+ 
+button{
+  background-color: bisque;
+  border: 1px solid gray ;
+  border-radius: 20px;
+  padding: 5px;
+
+}
+p.error{
+color: red;
+}
+section.card{
+  text-align: center;
+  font-size: 1rem;
+}
+

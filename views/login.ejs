@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<%-include("partials/head")  %>
+<%-include("partials/header")  %>
+<body <% if (locals.user) { %>
+    style="background-color:<%- user.color %>;"
+   <% } %>>
+    <section class="card"><p><% if (locals.user) { %>
+    <%= user.nombre +", gracias por visitarnos." %> 
+     <% } %></p></section>
+</body>
+</html>

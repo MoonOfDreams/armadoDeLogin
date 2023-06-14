@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <%-include("partials/head") %>
+  <body <% if (locals.user) { %>
+   style="background-color:<%- user.color %>;"
+  <% } %>>
+    <%- include("partials/header") %>
+    <main>
+      <h1>Registro</h1>
+      <form action="/" method="post" class="register">
+        <label for="nombre">Ingrese su nombre </label>
+        <input
+          name="nombre"
+          id="nombre"
+          type="text"
+          value="<%= locals.old&&old.nombre?old.nombre:null  %>"
+        />
+        <% if (locals.mensajeDeError && mensajeDeError.nombre ) { %>
+        <p class="error" id="error"><%- mensajeDeError.nombre.msg %></p>
+        <% } %>
+        <label for="color">elije un color:</label>
+        <select
+          name="color"
+        ><option value="bisque" <% if (locals.user && user.color === "bisque") { %>
+          selected
+         <% } %>>bisque</option>
+        <option value="red" <% if (locals.user&& user.color === "red") { %>
+          selected
+         <% } %>>Rojo</option>
+        <option value="pink" <% if (locals.user && user.color === "pink") { %>
+          selected
+         <% } %>>rosa</option>
+        </select>
+        <% if (locals.mensajeDeError && mensajeDeError.color ) { %>
+        <p class="error" id="error"><%- mensajeDeError.color.msg %></p>
+        <% } %>
+        <label for="email">ingresa tu email</label>
+        <input
+          name="email"
+          id="email"
+          type="text"
+          value="<%= locals.old&&old.email?old.email:null  %>"
+        />
+        <% if (locals.mensajeDeError && mensajeDeError.email ) { %>
+        <p class="error" id="error"><%- mensajeDeError.email.msg %></p>
+        <% } %>
+        <label for="edad">ingresa tu edad</label>
+        <input
+          name="edad"
+          id="edad"
+          type="number"
+          value="<%= locals.old&&old.edad?old.edad:null  %>"
+        />
+        <% if (locals.mensajeDeError && mensajeDeError.edad ) { %>
+        <p class="error" id="error"><%- mensajeDeError.edad.msg %></p>
+        <% } %>
+        <div class="recordame
+        "><label for="recordame">recordame</label>
+        <input type="checkbox" name="recordame" id="recordame"></div>
+
+        <button type="submit">Enviar</button>
+        <div class="mensaje"></div>
+      </form>
+
+      
+      
+      <div>
+       <section class="card"> <p><% if (locals.user) { %>
+         <%= "Hola " +user.nombre+", "+ "elejiste el color mas bonito: "+user.color +", "+ "tu email es: "+user.email +", "+ "y tu edad es: "+" "+ user.edad  %>
+        <% } %></p></section>
+     </div> <form action="/reset" method="post">
+        <button > borrar color</button>
+      </form>
+    </main>
+  </body>
+</html>
